@@ -1,44 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Tip calculator app</title>
 </head>
 <body>
+  <!--Header-->
+  <header class="header">
+    <img src="images/logo.svg" alt="Logotipo" class="logotipo">
+  </header>
 
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main class="main">
+    <!--Calculator Component-->
+    <div class="container__calculator">
+      <div class="options__tip">
+        <div class="insert__bill">
+          <label for="bill">Bill</label>
+          <input type="text" name="bill" id="bill">
+        </div>
+        <div class="select__tip">
+          <label for="tip">Select Tip %</label>
+          <input type="button" id="5percent" value="5%">
+          <input type="button" id="10percent" value="10%">
+          <input type="button" id="15percent" value="15%">
+          <input type="button" id="25percent" value="25%">
+          <input type="button" id="50percent" value="50%">
+          <input type="button" id="insertpercent" value="Custrom">
+        </div>
+        <div class="people__tip">
+          <label for="people">Number of People</label>
+          <input type="text" name="people" id="people">
+        </div>
+      </div>
+      <div class="summary__tip">
+        <div class="summary__amount">
+          <p class="amount__tip">Tip Amount <span class="person">/person</span></p>
+          <p class="amount" id="amount"></p>
+        </div>
+        <div class="summary__total">
+          <p class="total__tip">Tip Amount <span class="person">/person</span></p>
+          <p class="total" id="total"></p>
+        </div>
+        <input type="reset" value="Reset" id="reset">
+      </div>
+    </div>
+  </main>
+  <!--Footer-->
+  <footer class="footer">
+    <p class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> | Coded by Vanesa Rodríguez</p>
+  </footer>
 </body>
+<script src="js/script.js"></script>
 </html>
