@@ -4,12 +4,16 @@
         --white: hsl(0, 0%, 100%);
         --cyan:hsl(172, 67%, 45%);
         --darkCyan: hsl(183, 100%, 15%);
+        --blueLagoon: hsl(183, 79%, 24%);
+
         /* Dark grayish cyan*/
         --bayoux: hsl(186, 14%, 43%);
         --ziggurat: hsl(184, 14%, 56%);
         /*Light grayish cyan*/
         --onahau: hsl(185, 41%, 84%);
         --azure: hsl(189, 41%, 97%);
+
+      
 }
 
 
@@ -117,7 +121,7 @@ input[type=text] {
         color: var(--darkCyan);
 }
 
-.item__input:nth-child(6){
+.btn__tip:nth-child(6){
         background-color: var(--azure);
         color: var(--bayoux);
         text-align: right;

@@ -1,17 +1,28 @@
 const bill = document.getElementById("bill");
 let percents = document.querySelectorAll(".btn__tip");
-let custom = document.getElementById("insertpercent");
+let custom = document.getElementById("custom");
 let totalPercent;
 const people = document.getElementById("people");
 
 const CalcAmount = document.getElementById("amount");
 const CalcTotal = document.getElementById("total");
 
+const reset = document.getElementById("reset");
+
+
 /* Calculadora sin datos*/
 
-if (CalcAmount.textContent === "" || CalcTotal.textContent ===""){
+if (CalcAmount.textContent === "" 
+       || CalcTotal.textContent ===""){
+
        CalcAmount.textContent = `$0.00`;
        CalcTotal.textContent= `$0.00`;
+
+       reset.disabled = true;
+       
+       if (reset.disabled == true){
+              reset.style.backgroundColor = "hsl(183, 79%, 24%)";
+       } 
 }
 
 
