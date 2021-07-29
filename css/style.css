@@ -103,7 +103,7 @@ input[type=text] {
         justify-content: space-between;
 }
 
-.item__input {
+.btn__tip {
         width: 7.8em;
         padding-top:  .5em;
         padding-bottom: .5em;
@@ -112,7 +112,7 @@ input[type=text] {
         color: var(--white);
 }
 
-.item__input:hover{
+.btn__tip:hover{
         background-color: var(--cyan);
         color: var(--darkCyan);
 }
@@ -189,7 +189,7 @@ input[type=reset]{
                 margin-right: 1.5em;
         }
 
-        .item__input {
+        .btn__tip {
                 width: 5.9em;
         }
 }

@@ -1,5 +1,5 @@
 const bill = document.getElementById("bill");
-let percents = document.querySelectorAll(".item__input");
+let percents = document.querySelectorAll(".btn__tip");
 let custom = document.getElementById("insertpercent");
 let totalPercent;
 const people = document.getElementById("people");
