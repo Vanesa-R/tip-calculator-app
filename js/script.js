@@ -1,54 +1,52 @@
 const bill = document.getElementById("bill");
+let percents = document.querySelectorAll(".item__input");
+let totalPercent;
 const people = document.getElementById("people");
-const CalcTotal = document.getElementById("total");
+
 const CalcAmount = document.getElementById("amount");
-
-const tip5 = document.getElementById("5percent");
-const tip10 = document.getElementById("10percent");
-const tip15 = document.getElementById("15percent");
-const tip25 = document.getElementById("25percent");
-const tip50 = document.getElementById("5percent");
-const custom = document.getElementById("insertpercent");
+const CalcTotal = document.getElementById("total");
 
 
 
+/* Capturar valor factura*/
 bill.addEventListener("keyup", () => {
-       const bills = bill.value;
+       let valueBill = bill.value;
 
-       tip15.addEventListener("click", () => {
-             const total =  bills * 0.15;
-             
-             people.addEventListener("keyup", (e) => {
 
-                    const numberPeople = people.value;
-                     let amount = total / numberPeople;
-       
-                     CalcAmount.innerHTML = amount.toFixed(2);
-                     CalcTotal.innerHTML = total.toFixed(2);
+       /* Capturar el porcentaje y calcular propina*/
+       percents.forEach(percent => {
+              percent.addEventListener("click", (e) => {
+                 let valuePercent = e.target.id;
 
-             })
+                 switch(valuePercent){
+                     case "5percent":
+                            totalPercent = valueBill * 0.05;
+                            break;
+                     case "10percent":
+                            totalPercent = valueBill * 0.10;
+                            break;
+                     case "15percent":
+                            totalPercent = valueBill * 0.15;
+                            break;
+                     case "25percent":
+                            totalPercent = valueBill * 0.25;
+                            break;
+                     case "50percent":
+                            totalPercent = valueBill * 0.50;
+                            break;
+                 }
 
+              /* Capturar las personas e imprimir totales*/
+              people.addEventListener("keyup", () => {
+                     let numberPeople = people.value;
+                     let amount =  totalPercent / numberPeople;
+  
+                      CalcAmount.innerHTML = `$${amount.toFixed(2)}`;
+                      CalcTotal.innerHTML = `$${totalPercent.toFixed(2)}`;
+ 
+               })
+                   
+              })
        })
 
-/*
-       tip10.addEventListener("click", (e) => {
-              return total = value * 1.10;
-        })
-
-
-       tip15.addEventListener("click", (e) => {
-              const total = value * 1.15;
-       })
-
-       tip25.addEventListener("click", (e) => {
-              const total = value * 1.25;
-       })
-
-       tip50.addEventListener("click", (e) => {
-              const total = value * 1.50;
-         })
-
-         */
 })
-
-
