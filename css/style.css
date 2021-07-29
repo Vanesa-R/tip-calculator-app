@@ -106,9 +106,15 @@ input[name="people"]{
 }
 .summary {
         color: var(--white);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
 }
+
 .person {
         transform: translateY(-.7em);
+        color: var(--ziggurat);
 }
 input[type=reset]{
         width: 100%;
@@ -122,6 +128,8 @@ input[type=reset]{
 .total,
 .amount {
         color: var(--cyan);
+        font-size: 2em;
+        font-weight: 600;
         text-align: end;
 }
 
