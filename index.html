@@ -24,13 +24,13 @@
         </div>
         <div class="select__tip">
           <label for="tip">Select Tip %</label>
-          <div class="inputs">
+          <div class="list__inputs">
             <input type="button" id="5percent" value="5%">
             <input type="button" id="10percent" value="10%">
             <input type="button" id="15percent" value="15%">
             <input type="button" id="25percent" value="25%">
             <input type="button" id="50percent" value="50%">
-            <input type="button" id="insertpercent" value="Custrom">
+            <input type="button" id="insertpercent" value="Custom">
           </div>
         </div>
         <div class="people__tip">
@@ -40,12 +40,18 @@
       </div>
       <div class="summary__tip">
         <div class="summary__amount">
-          <p class="amount__tip">Tip Amount <span class="person">/person</span></p>
-          <p class="amount" id="amount"></p>
+          <div class="summary">
+            <p class="amount__tip">Tip Amount</p>
+            <p class="amount" id="amount"></p>
+          </div>
+          <p class="person">/person</p>
         </div>
         <div class="summary__total">
-          <p class="total__tip">Tip Amount <span class="person">/person</span></p>
-          <p class="total" id="total"></p>
+          <div class="summary">
+            <p class="total__tip">Tip Amount</p>
+            <p class="total" id="total"></p>
+          </div>
+          <p class="person">/person</p>
         </div>
         <input type="reset" value="Reset" id="reset">
       </div>
