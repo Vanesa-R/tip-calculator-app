@@ -7,6 +7,13 @@ const people = document.getElementById("people");
 const CalcAmount = document.getElementById("amount");
 const CalcTotal = document.getElementById("total");
 
+/* Calculadora sin datos*/
+
+if (CalcAmount.textContent === "" || CalcTotal.textContent ===""){
+       CalcAmount.textContent = `$0.00`;
+       CalcTotal.textContent= `$0.00`;
+}
+
 
 /* Capturar valor factura*/
 bill.addEventListener("keyup", () => {
