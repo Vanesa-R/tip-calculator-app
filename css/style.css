@@ -57,7 +57,8 @@ input[type=text] {
         font-weight: 700;
 }
 
-input[type=text]{
+input[name="bill"],
+input[name="people"]{
         background-color: var(--azure);
         padding: 1em;
         width: 100%;
@@ -74,7 +75,7 @@ input[type=text]{
 }
 
 
-input[type=button]{
+.item__input {
         width: 7.8em;
         padding-top:  .5em;
         padding-bottom: .5em;
@@ -83,14 +84,16 @@ input[type=button]{
         color: var(--white);
 }
 
-input[type=button]:nth-child(3){
+.item__input:hover{
         background-color: var(--cyan);
         color: var(--darkCyan);
 }
 
-input[type=button]:nth-child(6){
+.item__input:nth-child(6){
         background-color: var(--azure);
         color: var(--bayoux);
+        text-align: right;
+        padding-right: 1em;
 }
 
 
