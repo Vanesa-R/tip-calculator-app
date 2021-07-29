@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Tip calculator app</title>
 </head>
@@ -23,12 +24,14 @@
         </div>
         <div class="select__tip">
           <label for="tip">Select Tip %</label>
-          <input type="button" id="5percent" value="5%">
-          <input type="button" id="10percent" value="10%">
-          <input type="button" id="15percent" value="15%">
-          <input type="button" id="25percent" value="25%">
-          <input type="button" id="50percent" value="50%">
-          <input type="button" id="insertpercent" value="Custrom">
+          <div class="inputs">
+            <input type="button" id="5percent" value="5%">
+            <input type="button" id="10percent" value="10%">
+            <input type="button" id="15percent" value="15%">
+            <input type="button" id="25percent" value="25%">
+            <input type="button" id="50percent" value="50%">
+            <input type="button" id="insertpercent" value="Custrom">
+          </div>
         </div>
         <div class="people__tip">
           <label for="people">Number of People</label>
