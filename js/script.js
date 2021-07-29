@@ -47,9 +47,9 @@ bill.addEventListener("keyup", () => {
                      let numberPeople = people.value;
                      let amount =  totalPercent / numberPeople;
   
-                      CalcAmount.innerHTML = `$${amount.toFixed(2)}`;
-                      CalcTotal.innerHTML = `$${totalPercent.toFixed(2)}`;
- 
+                      CalcAmount.textContent = `$${amount.toFixed(2)}`;
+                      CalcTotal.textContent = `$${totalPercent.toFixed(2)}`;
+
                })          
               })
        })
