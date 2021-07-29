@@ -12,6 +12,8 @@
         --azure: hsl(189, 41%, 97%);
 }
 
+
+/* LAYOUT */
 body {
         font-family: 'Space Mono', monospace;
         font-size: 24px;
@@ -19,14 +21,16 @@ body {
         color: var(--bayoux);
         display: flex;
         flex-direction: column;
-       height: 100vh;
 }
 
+/* header*/
 .header {
         padding: 2em;
         text-align: center;
 }
 
+
+/* Componente */
 .container__calculator {
         background-color: var(--white);
         border-radius: 1em;
@@ -44,14 +48,23 @@ label {
         margin-bottom: .5em;
 }
 
-input[type=text]{
-        background-color: var(--azure);
+input[type=button],
+input[type=reset],
+input[type=text] {
+        border-radius: .3em;
         border: none;
         outline: none;
+        font-weight: 700;
+}
+
+input[type=text]{
+        background-color: var(--azure);
         padding: 1em;
         width: 100%;
         position: relative;
         caret-color: var(--cyan);
+        text-align: right;
+        color: var(--darkCyan);
 }
 
 .inputs {
@@ -60,18 +73,14 @@ input[type=text]{
         justify-content: space-between;
 }
 
+
 input[type=button]{
         width: 7.8em;
         padding-top:  .5em;
         padding-bottom: .5em;
         margin: .4em 0em;
-        border-radius: .3em;
-        border: none;
-        outline: none;
         background-color: var(--darkCyan);
         color: var(--white);
-        font-weight: 700;
-
 }
 
 input[type=button]:nth-child(3){
@@ -84,8 +93,37 @@ input[type=button]:nth-child(6){
         color: var(--bayoux);
 }
 
+
+/* Sección resumen de propinas*/
 .summary__tip {
         margin-top: 2em;
         background-color: var(--darkCyan);
         border-radius: 1em;
+        font-weight: 500;
+}
+.summary {
+        color: var(--white);
+}
+.person {
+        transform: translateY(-.7em);
+}
+input[type=reset]{
+        width: 100%;
+        padding: .6em;
+        text-transform: uppercase;
+        background-color: var(--cyan);
+        margin-bottom: 1em;
+        color: var(--darkCyan);
+}
+
+.total,
+.amount {
+        color: var(--cyan);
+        text-align: end;
+}
+
+.footer {
+        font-size: .4em;
+        padding: 1em;
+        text-align: center;
 }
