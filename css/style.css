@@ -11,3 +11,81 @@
         --onahau: hsl(185, 41%, 84%);
         --azure: hsl(189, 41%, 97%);
 }
+
+body {
+        font-family: 'Space Mono', monospace;
+        font-size: 24px;
+        background-color: var(--onahau);
+        color: var(--bayoux);
+        display: flex;
+        flex-direction: column;
+       height: 100vh;
+}
+
+.header {
+        padding: 2em;
+        text-align: center;
+}
+
+.container__calculator {
+        background-color: var(--white);
+        border-radius: 1em;
+        font-size: .8em;
+}
+
+.options__tip,
+.summary__tip {
+        padding: .5em 1.5em;
+}
+
+label {
+        display: block;
+        margin-top: 1.5em;
+        margin-bottom: .5em;
+}
+
+input[type=text]{
+        background-color: var(--azure);
+        border: none;
+        outline: none;
+        padding: 1em;
+        width: 100%;
+        position: relative;
+        caret-color: var(--cyan);
+}
+
+.inputs {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+}
+
+input[type=button]{
+        width: 7.8em;
+        padding-top:  .5em;
+        padding-bottom: .5em;
+        margin: .4em 0em;
+        border-radius: .3em;
+        border: none;
+        outline: none;
+        background-color: var(--darkCyan);
+        color: var(--white);
+        font-weight: 700;
+
+}
+
+input[type=button]:nth-child(3){
+        background-color: var(--cyan);
+        color: var(--darkCyan);
+}
+
+input[type=button]:nth-child(6){
+        background-color: var(--azure);
+        color: var(--bayoux);
+}
+
+.summary__tip {
+        margin-top: 2em;
+        background-color: var(--darkCyan);
+        border-radius: 1em;
+}
