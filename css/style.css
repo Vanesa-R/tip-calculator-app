@@ -191,8 +191,14 @@ input[type=reset]{
        
         .summary__tip {
                 margin-right: 1.5em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
         }
 
+        .summary__total {
+                transform: translateY(-2em);
+        }
         .btn__tip {
                 width: 5.9em;
         }
