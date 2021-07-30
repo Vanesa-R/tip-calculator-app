@@ -1,6 +1,6 @@
 /* DOM */
 const bill = document.getElementById("bill");
-const percents = document.querySelectorAll(".btn__tip");
+const tips = document.querySelectorAll(".tip");
 const custom = document.getElementById("custom");
 const people = document.getElementById("people");
 const CalcAmount = document.getElementById("amount");
@@ -21,7 +21,7 @@ const empty = () => {
 empty();
 
 
-/* Capturar valor factura*/
+/* SECCIÓN BILL*/
 let valueBill;
 bill.addEventListener("keyup", () => {
        valueBill = bill.value;
@@ -36,52 +36,50 @@ bill.addEventListener("keyup", () => {
 
 
                                                  
- /* Capturar tipo de propina (porcentaje) y calcular propina*/
+ /* SECCIÓN SELECT TIP*/
 
-let valuePercent;
-let totalPercent;
-let select;
+let tipSelect;
+let totalTip;
 
-percents.forEach(percent =>  {
+tips.forEach(tip =>  {
 
-        percent.addEventListener("click", (e) => {
-              valuePercent = e.target.id;
-             
+        tip.addEventListener("click", (e) => {
+              tipSelect = e.target.id;           
               
               /* Cálculos según propina seleccionada */
-              switch(valuePercent){
+              switch(tipSelect){
                      case "5percent": 
-                            totalPercent = valueBill * 0.05;
+                            totalTip = valueBill * 0.05;
                             break;
                      case "10percent":
-                            totalPercent = valueBill * 0.10;
+                            totalTip = valueBill * 0.10;
                             break;
                      case "15percent":
-                            totalPercent = valueBill * 0.15;
+                            totalTip = valueBill * 0.15;
                             break;
                      case "25percent":
-                            totalPercent = valueBill * 0.25;
+                            totalTip = valueBill * 0.25;
                             break;
                      case "50percent":
-                            totalPercent = valueBill * 0.50;
+                            totalTip = valueBill * 0.50;
                             break;
                      default:
                             break;
               }
 
-              if (percent){
-                     percent.style.backgroundColor = "hsl(172, 67%, 45%)";
-                     percent.style.color = "hsl(183, 100%, 15%)";
-              }
-
+              /* Estado de propina seleccionada*/
+             if (tip){
+                    tip.classList.toggle("tip--active");
+             }
+       
        })
        
 })
 
-let customPercent;
+let customTip;
 custom.addEventListener("keyup", (e) => {
-       customPercent = (e.target.value) / 100;
-       totalPercent = valueBill * customPercent;
+       customTip = (e.target.value) / 100;
+       totalTip = valueBill * customTip;
 
        if (custom){
               custom.style.backgroundColor = "hsl(189, 41%, 97%)";
@@ -90,7 +88,7 @@ custom.addEventListener("keyup", (e) => {
 })
 
 
-/* Capturar número de  personas e imprimir totales*/
+/* SECCIÓN NUMBER OF PEOPLE e impresión */
 let numberPeople;
 people.addEventListener("keyup", () => {
 
@@ -98,7 +96,7 @@ people.addEventListener("keyup", () => {
        numberPeople = people.value;
 
         /* Cálculo*/
-       let amount =  totalPercent / numberPeople;
+       let amount =  totalTip / numberPeople;
 
        /* Estado del input*/
        if (people.value) {
@@ -111,7 +109,7 @@ people.addEventListener("keyup", () => {
 
        /* Impresión de datos, estilos y reseteo*/
        CalcAmount.textContent = `$${amount.toFixed(2)}`;
-       CalcTotal.textContent = `$${totalPercent.toFixed(2)}`;
+       CalcTotal.textContent = `$${totalTip.toFixed(2)}`;
        
        reset.disabled = false;
 

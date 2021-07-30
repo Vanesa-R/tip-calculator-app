@@ -107,7 +107,7 @@ input[type=text] {
         justify-content: space-between;
 }
 
-.btn__tip {
+.tip {
         width: 7.8em;
         padding-top:  .5em;
         padding-bottom: .5em;
@@ -115,13 +115,16 @@ input[type=text] {
         background-color: var(--darkCyan);
         color: var(--white);
 }
-
-.btn__tip:hover{
+.tip:hover{
         background-color: var(--onahau);
         color: var(--darkCyan);
 }
+.tip.tip--active {
+        background-color: var(--cyan);
+        color: var(--darkCyan);
+}
 
-.btn__tip:nth-child(6){
+.tip:nth-child(6){
         background-color: var(--azure);
         color: var(--bayoux);
         text-align: right;
@@ -205,7 +208,7 @@ input[type=reset]:disabled {
         .summary__total {
                 transform: translateY(-2em);
         }
-        .btn__tip {
+        .tip {
                 width: 5.9em;
                 cursor: pointer;
         }
