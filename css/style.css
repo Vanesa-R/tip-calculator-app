@@ -159,6 +159,12 @@ input[type=reset]{
         color: var(--darkCyan);
 }
 
+input[type=reset]:disabled {
+        background-color: var(--blueLagoon);
+}
+
+
+
 .total,
 .amount {
         color: var(--cyan);
@@ -201,6 +207,10 @@ input[type=reset]{
         }
         .btn__tip {
                 width: 5.9em;
+        }
+
+        input[type=reset]{
+                cursor: pointer;
         }
 }
 

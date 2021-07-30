@@ -1,6 +1,7 @@
 const bill = document.getElementById("bill");
-let percents = document.querySelectorAll(".btn__tip");
-let custom = document.getElementById("custom");
+
+const percents = document.querySelectorAll(".btn__tip");
+const custom = document.getElementById("custom");
 let totalPercent;
 const people = document.getElementById("people");
 
@@ -12,23 +13,24 @@ const reset = document.getElementById("reset");
 
 /* Calculadora sin datos*/
 
-if (CalcAmount.textContent === "" 
-       || CalcTotal.textContent ===""){
+const empty = () => {
+       if (bill.value === "" ||  people.value ===""){
 
-       CalcAmount.textContent = `$0.00`;
-       CalcTotal.textContent= `$0.00`;
-
-       reset.disabled = true;
+              CalcAmount.textContent = `$0.00`;
+              CalcTotal.textContent= `$0.00`;
        
-       if (reset.disabled == true){
-              reset.style.backgroundColor = "hsl(183, 79%, 24%)";
-       } 
+              reset.disabled = true;
+              
+       }
 }
+empty();
+
 
 
 /* Capturar valor factura*/
 bill.addEventListener("keyup", () => {
        let valueBill = bill.value;
+
 
               
        /* Capturar el porcentaje y calcular propina*/
@@ -52,23 +54,40 @@ bill.addEventListener("keyup", () => {
                      case "50percent":
                             totalPercent = valueBill * 0.50;
                             break;
-                 }
-              
-              custom.addEventListener("keyup", (e) => {
-                     let customPercent = (e.target.value) / 100;
-                     totalPercent = valueBill * customPercent;
-              })
-              
-
-              /* Capturar las personas e imprimir totales*/
-              people.addEventListener("keyup", () => {
-                     let numberPeople = people.value;
-                     let amount =  totalPercent / numberPeople;
-  
-                      CalcAmount.textContent = `$${amount.toFixed(2)}`;
-                      CalcTotal.textContent = `$${totalPercent.toFixed(2)}`;
-
-               })          
+                 }    
               })
        })
+
+       custom.addEventListener("keyup", (e) => {
+              let customPercent = (e.target.value) / 100;
+              totalPercent = valueBill * customPercent;
+       })
+       
+
+       /* Capturar las personas e imprimir totales*/
+       people.addEventListener("keyup", () => {
+              let numberPeople = people.value;
+              let amount =  totalPercent / numberPeople;
+
+               CalcAmount.textContent = `$${amount.toFixed(2)}`;
+               CalcTotal.textContent = `$${totalPercent.toFixed(2)}`;
+
+               reset.disabled = false;
+
+
+               if (reset.disabled == false){
+
+                     reset.addEventListener("click", (e) => {
+              
+                            bill.value = "";
+                            people.value = "";
+
+                            empty();
+
+                     })
+              }
+
+        })             
+
 })
+
