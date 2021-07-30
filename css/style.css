@@ -117,7 +117,7 @@ input[type=text] {
 }
 
 .btn__tip:hover{
-        background-color: var(--cyan);
+        background-color: var(--onahau);
         color: var(--darkCyan);
 }
 
@@ -207,11 +207,22 @@ input[type=reset]:disabled {
         }
         .btn__tip {
                 width: 5.9em;
+                cursor: pointer;
         }
 
+        input[type=reset]:disabled {
+                cursor: not-allowed;
+        }
+        input[type=reset]:disabled:hover{
+                background-color: var(--blueLagoon);
+        }
         input[type=reset]{
                 cursor: pointer;
         }
+        input[type=reset]:hover {
+                background-color: var(--onahau);
+        }
+        
 }
 
 
