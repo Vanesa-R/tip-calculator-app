@@ -119,6 +119,9 @@ people.addEventListener("keyup", () => {
                      people.value = "";
                      bill.style.border = "none";
                      people.style.border = "none";
+                     tips.forEach(tip => {
+                            tip.classList.remove("tip--active");
+                     })
                      empty();
               })
        }
