@@ -1,129 +1,168 @@
-/* DOM */
+/* Acceso DOM */
 const bill = document.getElementById("bill");
 const tips = document.querySelectorAll(".tip");
 const custom = document.getElementById("custom");
 const people = document.getElementById("people");
-const CalcAmount = document.getElementById("amount");
-const CalcTotal = document.getElementById("total");
+const warningPeople = document.querySelector(".people__warning");
+const tipAmount = document.getElementById("amount");
+const tipTotal = document.getElementById("total");
 const reset = document.getElementById("reset");
+
+/* Variables funciones */
+let valueBill;
+let tipSelected;
+let customTip;
+let numberPeople;
+let amount;
+let totalTip;
+
+
+/* OBTENER DATOS */
+
+/* Bill */
+bill.addEventListener("input", () => {
+       valueBill = parseFloat(bill.value);
+       calc();
+       states();
+       empty();
+})
+
+/* Select Tip %*/
+tips.forEach(tip => {
+       tip.addEventListener("click", (e) => {
+              tipSelected = e.target.id  / 100;
+              calc();
+              empty();
+
+              /* Estado activado*/
+              if (tip){
+                     tip.classList.toggle("--active");
+              } 
+
+       })
+})
+
+custom.addEventListener("input", (e) => {
+       customTip = (e.target.value) / 100;
+       calc();
+       states();
+       empty();
+})
+
+/* Number of people */
+people.addEventListener("input", () => {
+       numberPeople = parseInt(people.value);
+       calc();
+       states();
+       empty();
+})
+
+
+/* CALCULAR DATOS */
+const calc = () => {
+
+       if (tipSelected){
+              amount = (valueBill / numberPeople) * tipSelected;
+       } else {
+              amount = (valueBill / numberPeople) * customTip;
+       }
+       
+       totalTip = (valueBill / numberPeople) + amount;
+       
+       print();
+}
+
+
+/* IMPRIMIR DATOS */
+const print = () => {
+       tipAmount.textContent = `$${amount.toFixed(2)}`;
+       tipTotal.textContent = `$${totalTip.toFixed(2)}`;
+       
+       enabledReset();
+}
+
+
+/* Modificar estado de inputs */
+
+const states = () => {
+
+       /* Bill */
+       if (bill.value) {
+              bill.classList.add("--active");
+       } else {
+              bill.classList.remove("--active");
+       }
+
+       /* Custom Tip*/       
+
+       if (custom.value){
+              custom.classList.add("--active");
+       } else {
+              custom.classList.remove("--active");
+       }
+
+       /* Number of People */
+   
+       if (people.value) {
+              people.classList.add("--active");
+              people.classList.remove("--error");
+
+              if  (people.value === "0"){
+                     warningPeople.textContent = "Don't be  zero";
+                     people.classList.remove("--active");
+                     people.classList.add("--error");
+
+              } else {
+                     warningPeople.textContent = "";
+              }
+
+       } else {
+              people.classList.remove("--active");
+              people.classList.remove("--error");
+              warningPeople.textContent = "";
+       }
+
+
+}
+
+
+/* Deshabilitar reset */
+const disabledReset = () => {
+       reset.disabled = true;
+}
+
+/* Habilitar reset */
+const enabledReset = () => {
+       reset.disabled = false;
+       clean();
+}
+
+
+/* Resetear datos */
+const clean = () => {
+       if (enabledReset){
+             reset.addEventListener("click", (e) => {
+                     bill.value = "";
+                     people.value = "";
+                     custom.value = "";
+                     tips.forEach(tip => {
+                            tip.classList.remove("--active");
+                     })
+                     empty(); 
+                     states();
+             })
+       }
+}
 
 
 /* Calculadora sin datos*/
 const empty = () => {
-       if (bill.value === "" ||  people.value ===""){
+       if (bill.value === "" || people.value === ""){
+              tipAmount.textContent = `$0.00`;
+              tipTotal.textContent= `$0.00`;
 
-              CalcAmount.textContent = `$0.00`;
-              CalcTotal.textContent= `$0.00`;
-       
-              reset.disabled = true;  
+              disabledReset();
        }
 }
 empty();
 
-
-/* SECCIÓN BILL*/
-let valueBill;
-bill.addEventListener("keyup", () => {
-       valueBill = bill.value;
-
-       /* Estado del input*/
-       if (bill.value) {
-              bill.style.border = "2px solid hsl(172, 67%, 45%)";
-       } else {
-              bill.style.border = "none";
-       }
-})
-
-
-                                                 
- /* SECCIÓN SELECT TIP*/
-
-let tipSelect;
-let totalTip;
-
-tips.forEach(tip =>  {
-
-        tip.addEventListener("click", (e) => {
-              tipSelect = e.target.id;           
-              
-              /* Cálculos según propina seleccionada */
-              switch(tipSelect){
-                     case "5percent": 
-                            totalTip = valueBill * 0.05;
-                            break;
-                     case "10percent":
-                            totalTip = valueBill * 0.10;
-                            break;
-                     case "15percent":
-                            totalTip = valueBill * 0.15;
-                            break;
-                     case "25percent":
-                            totalTip = valueBill * 0.25;
-                            break;
-                     case "50percent":
-                            totalTip = valueBill * 0.50;
-                            break;
-                     default:
-                            break;
-              }
-
-              /* Estado de propina seleccionada*/
-             if (tip){
-                    tip.classList.toggle("tip--active");
-             }
-       
-       })
-       
-})
-
-let customTip;
-custom.addEventListener("keyup", (e) => {
-       customTip = (e.target.value) / 100;
-       totalTip = valueBill * customTip;
-
-       if (custom){
-              custom.style.backgroundColor = "hsl(189, 41%, 97%)";
-              custom.style.border = "1px solid hsl(172, 67%, 45%)"
-       }
-})
-
-
-/* SECCIÓN NUMBER OF PEOPLE e impresión */
-let numberPeople;
-people.addEventListener("keyup", () => {
-
-       /* Capturar número de personas*/
-       numberPeople = people.value;
-
-        /* Cálculo*/
-       let amount =  totalTip / numberPeople;
-
-       /* Estado del input*/
-       if (people.value) {
-              people.style.border = "2px solid hsl(172, 67%, 45%)";
-       } else {
-              people.style.border = "none";
-       }
-       
-       
-
-       /* Impresión de datos, estilos y reseteo*/
-       CalcAmount.textContent = `$${amount.toFixed(2)}`;
-       CalcTotal.textContent = `$${totalTip.toFixed(2)}`;
-       
-       reset.disabled = false;
-
-       if (reset.disabled == false){
-              reset.addEventListener("click", (e) => {
-                     bill.value = "";
-                     people.value = "";
-                     bill.style.border = "none";
-                     people.style.border = "none";
-                     tips.forEach(tip => {
-                            tip.classList.remove("tip--active");
-                     })
-                     empty();
-              })
-       }
-
-})             

@@ -25,16 +25,17 @@
         <div class="select__tip">
           <label for="tip">Select Tip %</label>
           <div class="btns__tip">
-            <input type="button" class="tip" id="5percent" value="5%">
-            <input type="button" class="tip" id="10percent" value="10%">
-            <input type="button" class="tip" id="15percent" value="15%">
-            <input type="button" class="tip" id="25percent" value="25%">
-            <input type="button" class="tip" id="50percent" value="50%">
+            <input type="button" class="tip" id="5" value="5%">
+            <input type="button" class="tip" id="10" value="10%">
+            <input type="button" class="tip" id="15" value="15%">
+            <input type="button" class="tip" id="25" value="25%">
+            <input type="button" class="tip" id="50" value="50%">
             <input type="text"  class="tip" id="custom" placeholder="Custom">
           </div>
         </div>
         <div class="people__tip">
           <label for="people">Number of People</label>
+          <span class="people__warning"></span>
           <input type="text" name="people" id="people" class="input__text" placeholder="0">
         </div>
       </div>
@@ -51,7 +52,7 @@
         <div class="summary__total">
           <div class="summary">
             <div class="paragraphs">
-              <p class="total__tip">Tip Amount</p>
+              <p class="total__tip">Total</p>
               <p class="person">/person</p>
             </div>
             <p class="total" id="total"></p>

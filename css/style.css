@@ -47,6 +47,7 @@ body {
 }
 
 
+
 /* ETIQUETAS para Bill y Number of People */
 
 label { 
@@ -75,6 +76,16 @@ label[for="people"]::before {
         content: url(../images/icon-person.svg);
 }
 
+label[for="people"]{
+        display: inline-block;
+
+}
+
+.people__warning {
+        font-size: .7em;
+        color: rgb(226, 8, 8);
+        padding-left: 3em;
+}
 
 /* Inputs */
 
@@ -87,6 +98,7 @@ input[type=text] {
         font-weight: 700;
 }
 
+
 .input__text{
         background-color: var(--azure);
         padding: .6em;
@@ -94,13 +106,25 @@ input[type=text] {
         caret-color: var(--cyan);
         text-align: right;
         color: var(--darkCyan);
+        border: 2px solid var(--azure);
+        transition: border 300ms ease;
+}
+
+.input__text.--active {
+        border: 2px solid var(--cyan);
+}
+
+.input__text.--error {
+        border: 2px solid red;
 }
 
 .input__text::placeholder{
         color: var(--ziggurat);
 }
 
+
 /* Select tip inputs */
+
 .inputs {
         display: flex;
         flex-flow: row wrap;
@@ -108,7 +132,7 @@ input[type=text] {
 }
 
 .tip {
-        width: 7.8em;
+        width: 48%;
         padding-top:  .5em;
         padding-bottom: .5em;
         margin: .4em 0em;
@@ -119,7 +143,8 @@ input[type=text] {
         background-color: var(--onahau);
         color: var(--darkCyan);
 }
-.tip.tip--active {
+
+.tip.--active {
         background-color: var(--cyan);
         color: var(--darkCyan);
 }
@@ -130,7 +155,9 @@ input[type=text] {
         text-align: right;
         padding-right: 1em;
 }
-
+.tip:nth-child(6).--active {
+        border: 2px solid var(--cyan);
+}
 
 
 /* Sección resumen de propinas*/
@@ -152,6 +179,7 @@ input[type=text] {
         transform: translateY(-.7em);
         color: var(--ziggurat);
 }
+
 
 input[type=reset]{
         width: 100%;
@@ -209,7 +237,7 @@ input[type=reset]:disabled {
                 transform: translateY(-2em);
         }
         .tip {
-                width: 5.9em;
+                width: 31%;
                 cursor: pointer;
         }
 
