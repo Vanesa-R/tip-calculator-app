@@ -24,7 +24,8 @@
 - Mobile-first workflow
 - JavaScript
 
-Wanna look how it works? [Click here!](https://vanesa-r.github.io/tip-calculator-app/)
+Wanna look how it works? [Click here!](https://vanesa-r.github.io/tip-calculator-app/) :point_left:
+
 ## What I learned
 
 I discovered the CSS property caret-color. It enabled me to give more complete styles to the inputs.
