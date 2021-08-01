@@ -1,5 +1,5 @@
 ## Table of contents
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
 - [The challenge](#the-challenge)
@@ -8,10 +8,10 @@
 
 ### Screenshots
 
-##### Screenshot mobile
+#### Screenshot mobile
 ![Diseño campos completados para móvil](screenshot/mobile-desing-completed_screenshot.png)
 
-##### Screenshot desktop
+#### Screenshot desktop
 ![Diseño campos vacío para escritorio](screenshot/desktop-design-empty_screenshot.png)
 ![Diseño con estados activados para escritorio](screenshot/desktop-design-active-states_screenshot.png)
 ![Diseño con campos completados para escritorio](screenshot/desktop-design-completed_screenshot.png)
@@ -24,7 +24,8 @@
 - Mobile-first workflow
 - JavaScript
 
-Wanna look how it works? [Click here!](https://vanesa-r.github.io/tip-calculator-app/) :point_left:
+**Wanna look how it works?** 
+[Check it out!](https://vanesa-r.github.io/tip-calculator-app/) :point_left:
 
 ## What I learned
 
