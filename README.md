@@ -14,6 +14,7 @@
 ##### Screenshot desktop
 ![Diseño campos vacío para escritorio](screenshot/desktop-design-empty_screenshot.png)
 ![Diseño con estados activados para escritorio](screenshot/desktop-design-active-states_screenshot.png)
+![Diseño con campos completados para escritorio](screenshot/desktop-design-completed_screenshot.png)
 
 
 ## Built with
