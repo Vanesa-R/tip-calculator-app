@@ -117,7 +117,7 @@ input[type=text] {
 }
 
 .input__text.--warning {
-        border: 2px solid red;
+        border: 2px solid rgb(226, 8, 8);
 }
 
 .input__text::placeholder{
