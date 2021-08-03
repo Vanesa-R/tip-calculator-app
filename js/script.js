@@ -87,19 +87,10 @@ const print = () => {
 const states = () => {
 
        /* Bill */
-       if (bill.value) {
-              bill.classList.add("--active");
-       } else {
-              bill.classList.remove("--active");
-       }
+       bill.classList.toggle("--active", bill.value);
 
        /* Custom Tip*/       
-
-       if (custom.value){
-              custom.classList.add("--active");
-       } else {
-              custom.classList.remove("--active");
-       }
+       custom.classList.toggle("--active", custom.value);
 
        /* Number of People */
    
@@ -117,8 +108,7 @@ const states = () => {
               }
 
        } else {
-              people.classList.remove("--active");
-              people.classList.remove("--error");
+              people.classList.remove("--active", "--error");
               warningPeople.textContent = "";
        }
 
@@ -165,4 +155,3 @@ const empty = () => {
        }
 }
 empty();
-
