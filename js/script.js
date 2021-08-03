@@ -31,13 +31,23 @@ bill.addEventListener("input", () => {
 tips.forEach(tip => {
        tip.addEventListener("click", (e) => {
               tipSelected = e.target.id  / 100;
+              
               calc();
               empty();
+              
 
               /* Estado activado*/
-              if (tip){
-                     tip.classList.toggle("--active");
-              } 
+              
+              if(tip.classList.contains("tip--selected")){
+                     tip.classList.remove("tip--selected");
+                     tip.classList.add("tip--unselected");
+                 }else{            
+                     tips.forEach(t =>{
+                         t.classList.remove("tip--selected");
+                     })
+                     tip.classList.remove("tip--unselected");
+                     tip.classList.add("tip--selected");
+                 }
 
        })
 })
@@ -96,19 +106,19 @@ const states = () => {
    
        if (people.value) {
               people.classList.add("--active");
-              people.classList.remove("--error");
+              people.classList.remove("--warning");
 
               if  (people.value === "0"){
                      warningPeople.textContent = "Don't be  zero";
                      people.classList.remove("--active");
-                     people.classList.add("--error");
+                     people.classList.add("--warning");
 
               } else {
                      warningPeople.textContent = "";
               }
 
        } else {
-              people.classList.remove("--active", "--error");
+              people.classList.remove("--active", "--warning");
               warningPeople.textContent = "";
        }
 
