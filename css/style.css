@@ -116,7 +116,7 @@ input[type=text] {
         border: 2px solid var(--cyan);
 }
 
-.input__text.--error {
+.input__text.--warning {
         border: 2px solid red;
 }
 
@@ -146,18 +146,21 @@ input[type=text] {
         color: var(--darkCyan);
 }
 
-.tip.--active {
+.tip.tip--selected {
         background-color: var(--cyan);
         color: var(--darkCyan);
 }
-
+.tip.tip--unselected {
+        background-color: var(--darkCyan);
+        color: var(--white);
+}
 .tip:nth-child(6){
         background-color: var(--azure);
         color: var(--bayoux);
         text-align: right;
         padding-right: 1em;
 }
-.tip:nth-child(6).--active {
+.tip:nth-child(6).tip--selected {
         border: 2px solid var(--cyan);
 }
 

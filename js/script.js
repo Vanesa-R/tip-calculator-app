@@ -31,13 +31,23 @@ bill.addEventListener("input", () => {
 tips.forEach(tip => {
        tip.addEventListener("click", (e) => {
               tipSelected = e.target.id  / 100;
+              
               calc();
               empty();
+              
 
               /* Estado activado*/
-              if (tip){
-                     tip.classList.toggle("--active");
-              } 
+              
+              if(tip.classList.contains("tip--selected")){
+                     tip.classList.remove("tip--selected");
+                     tip.classList.add("tip--unselected");
+                 }else{            
+                     tips.forEach(t =>{
+                         t.classList.remove("tip--selected");
+                     })
+                     tip.classList.remove("tip--unselected");
+                     tip.classList.add("tip--selected");
+                 }
 
        })
 })
@@ -87,38 +97,28 @@ const print = () => {
 const states = () => {
 
        /* Bill */
-       if (bill.value) {
-              bill.classList.add("--active");
-       } else {
-              bill.classList.remove("--active");
-       }
+       bill.classList.toggle("--active", bill.value);
 
        /* Custom Tip*/       
-
-       if (custom.value){
-              custom.classList.add("--active");
-       } else {
-              custom.classList.remove("--active");
-       }
+       custom.classList.toggle("--active", custom.value);
 
        /* Number of People */
    
        if (people.value) {
               people.classList.add("--active");
-              people.classList.remove("--error");
+              people.classList.remove("--warning");
 
               if  (people.value === "0"){
                      warningPeople.textContent = "Don't be  zero";
                      people.classList.remove("--active");
-                     people.classList.add("--error");
+                     people.classList.add("--warning");
 
               } else {
                      warningPeople.textContent = "";
               }
 
        } else {
-              people.classList.remove("--active");
-              people.classList.remove("--error");
+              people.classList.remove("--active", "--warning");
               warningPeople.textContent = "";
        }
 
@@ -165,4 +165,3 @@ const empty = () => {
        }
 }
 empty();
-
