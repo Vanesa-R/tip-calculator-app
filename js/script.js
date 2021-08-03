@@ -30,8 +30,8 @@ bill.addEventListener("input", () => {
 /* Select Tip %*/
 tips.forEach(tip => {
        tip.addEventListener("click", (e) => {
-              tipSelected = e.target.id  / 100;
-              
+
+              tipSelected = tip.dataset.btnTip / 100;
               calc();
               empty();
               
