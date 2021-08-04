@@ -64,7 +64,7 @@ label[for="people"]::before {
         content: url(../images/icon-dollar.svg);
         width: 100%;
         height: 100%;
-        top: 2.4em;
+        top: 2.5em;
         left: .5em;
         z-index: 5;
 }
@@ -95,20 +95,19 @@ input[type=button],
 input[type=reset],
 input[type=text] {
         border-radius: .3em;
-        border: none;
+        border: 2px solid transparent;
         outline: none;
         font-weight: 700;
 }
 
 
 .input__text{
-        background-color: var(--azure);
-        padding: .6em;
         width: 100%;
-        caret-color: var(--cyan);
+        padding: .6em;
         text-align: right;
+        background-color: var(--azure);
         color: var(--darkCyan);
-        border: 2px solid var(--azure);
+        caret-color: var(--cyan);
         transition: border 300ms ease;
 }
 
@@ -140,6 +139,7 @@ input[type=text] {
         margin: .4em 0em;
         background-color: var(--darkCyan);
         color: var(--white);
+        transition: background-color 300ms ease;
 }
 .tip:hover{
         background-color: var(--onahau);
@@ -159,6 +159,8 @@ input[type=text] {
         color: var(--bayoux);
         text-align: right;
         padding-right: 1em;
+        border: 2px solid var(--azure);
+        transition: border 300ms ease;
 }
 .tip:nth-child(6).tip--selected {
         border: 2px solid var(--cyan);
@@ -196,6 +198,7 @@ input[type=reset]{
         background-color: var(--cyan);
         margin-bottom: 1em;
         color: var(--darkCyan);
+        transition: background-color 300ms ease;
 }
 
 input[type=reset]:disabled {
