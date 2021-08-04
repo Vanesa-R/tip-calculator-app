@@ -44,11 +44,11 @@ tips.forEach(tip => {
                  }else{            
                      tips.forEach(t =>{
                          t.classList.remove("tip--selected");
+                         custom.value = "";
                      })
                      tip.classList.remove("tip--unselected");
                      tip.classList.add("tip--selected");
                  }
-
        })
 })
 
@@ -68,28 +68,32 @@ people.addEventListener("input", () => {
 })
 
 
-/* CALCULAR DATOS */
+/* CALCULAR DATOS E IMPRIMIR */
 const calc = () => {
+
+       // Cálculos
 
        if (tipSelected){
               amount = (valueBill / numberPeople) * tipSelected;
+              totalTip = (valueBill / numberPeople) + amount;
        } else {
               amount = (valueBill / numberPeople) * customTip;
+              totalTip = valueBill / numberPeople;
+
        }
        
-       totalTip = (valueBill / numberPeople) + amount;
        
-       print();
+       // Impresión de cálculos
+
+       (() => {
+              tipAmount.textContent = `$${(amount || 0).toFixed(2)}`;
+              tipTotal.textContent = `$${totalTip.toFixed(2)}`;
+              
+              enabledReset();
+       })();
+       
 }
 
-
-/* IMPRIMIR DATOS */
-const print = () => {
-       tipAmount.textContent = `$${amount.toFixed(2)}`;
-       tipTotal.textContent = `$${totalTip.toFixed(2)}`;
-       
-       enabledReset();
-}
 
 
 /* Modificar estado de inputs */
@@ -101,9 +105,9 @@ const states = () => {
 
        /* Custom Tip*/       
        custom.classList.toggle("--active", custom.value);
+       
 
        /* Number of People */
-   
        if (people.value) {
               people.classList.add("--active");
               people.classList.remove("--warning");
@@ -141,12 +145,13 @@ const enabledReset = () => {
 /* Resetear datos */
 const clean = () => {
        if (enabledReset){
-             reset.addEventListener("click", (e) => {
+             reset.addEventListener("click", () => {
                      bill.value = "";
                      people.value = "";
                      custom.value = "";
                      tips.forEach(tip => {
-                            tip.classList.remove("--active");
+                            tip.classList.remove("tip--selected");
+                            tipSelected = "";
                      })
                      empty(); 
                      states();
@@ -157,7 +162,9 @@ const clean = () => {
 
 /* Calculadora sin datos*/
 const empty = () => {
-       if (bill.value === "" || people.value === ""){
+       if (bill.value === "" 
+              || people.value === ""  || people.value === "0") {
+
               tipAmount.textContent = `$0.00`;
               tipTotal.textContent= `$0.00`;
 
