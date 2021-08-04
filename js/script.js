@@ -75,12 +75,12 @@ const calc = () => {
 
        if (tipSelected){
               amount = (valueBill / numberPeople) * tipSelected;
-              totalTip = (valueBill / numberPeople) + amount;
+              totalTip = (valueBill / numberPeople) + amount ;
        } else {
               amount = (valueBill / numberPeople) * customTip;
 
               if (customTip) {
-                     totalTip = (valueBill / numberPeople) + customTip;
+                     totalTip = (valueBill / numberPeople) + amount;
               } else {
                      totalTip = (valueBill / numberPeople);
               }
