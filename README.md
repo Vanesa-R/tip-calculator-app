@@ -29,6 +29,12 @@
 
 ## What I learned
 
+I discovered data- attribute.  It enabled  me to store additional information in the HTML elements.
+
+```html
+       <input type="button" class="tip" data-btn-tip="5" value="5%">
+```
+
 I discovered the CSS property caret-color. It enabled me to give more complete styles to the inputs.
 
 ```css
@@ -42,16 +48,17 @@ The best thing about this challenge has been to give functionality to the app wi
 ```js
 const clean = () => {
        if (enabledReset){
-             reset.addEventListener("click", (e) => {
+             reset.addEventListener("click", () => {
                      bill.value = "";
                      people.value = "";
                      custom.value = "";
                      tips.forEach(tip => {
-                            tip.classList.remove("--active");
+                            tip.classList.remove("tip--selected");
+                            tipSelected = "";
                      })
                      empty(); 
                      states();
-              })
+             })
        }
 }
 ```
